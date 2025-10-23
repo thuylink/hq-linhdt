@@ -16,12 +16,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/searchKeyword', [CategoryController::class, 'searchKeyword']);
-
+// dd(1);
 
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
-
-Route::middleware(['auth:sanctum', AdminMiddleware::class])->group(function () {
+// Route::middleware(['auth:sanctum', AdminMiddleware::class])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/logged-user', [AuthController::class, 'logged']);
     // Route::post('/change-password', [PasswordController::class, 'changePassword']);
@@ -53,6 +51,7 @@ Route::middleware(['auth:sanctum', AdminMiddleware::class])->group(function () {
     Route::get('/orders', [OrderController::class, 'index']);
     Route::post('/orders', [OrderController::class, 'store']);
     Route::put('/orders/{id}', [OrderController::class, 'updateStatus']);
-});
+// });
 
 Route::post('password/email', [PasswordController::class, 'sendLinkReserEmail']);
+Route::get('sendsms', [OrderController::class, 'sendSMS']);

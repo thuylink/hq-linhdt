@@ -7,6 +7,7 @@ use Illuminate\Auth\Events\Registered;
 
 class AuthService
 {
+
     public function __construct(
         protected AuthRepositoryInterface $authRepositoryInterface
     ) {}
